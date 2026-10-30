@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FBF6F0">
+<title>积极分子考试锦囊</title>
+<style>
+:root{
+  --bg:#FBF6F0; --bg2:#F5EDE4; --card:#FFFFFF; --ink:#33291F; --ink2:#6B5B4A;
+  --ink3:#9A8877; --line:#EADFD3; --line2:#F2E8DE;
+  --accent:#C4674A; --accent-d:#A9502F; --accent-t:#FBEDE7;
+  --gold:#D9A441; --gold-t:#FDF4E1;
+  --ok:#7D9B6E; --ok-t:#EEF3EA;
+  --warn:#D98C3F; --warn-t:#FDF1E2;
+  --bad:#C25A55; --bad-t:#FBECEA;
+  --r:16px; --r2:12px; --r3:20px;
+  --sh:0 1px 2px rgba(90,60,40,.05), 0 4px 16px rgba(90,60,40,.06);
+  --sh2:0 2px 6px rgba(90,60,40,.07), 0 12px 32px rgba(90,60,40,.10);
+  --maxw:1180px; --pad:20px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",Roboto,sans-serif;
+  font-size:16px; line-height:1.75; letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+}
+button{font-family:inherit;font-size:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+ul{margin:0;padding:0;list-style:none}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.app{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);overflow-x:clip}
+.topbar{
+  position:sticky;top:0;z-index:60;background:rgba(251,246,240,.9);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line2);
+}
+.topbar-in{max-width:var(--maxw);margin:0 auto;padding:12px var(--pad);display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.02em;white-space:nowrap}
+.brand .logo{
+  width:30px;height:30px;border-radius:9px;flex:0 0 auto;
+  background:linear-gradient(145deg,#D9764F,#B04E2C);
+  display:grid;place-items:center;color:#fff;font-size:14px;font-weight:700;
+  box-shadow:0 2px 8px rgba(176,78,44,.28)
+}
+.brand small{display:block;font-size:11px;font-weight:400;color:var(--ink3);letter-spacing:.06em;line-height:1.2}
+.topbar-stat{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink2);min-width:0}
+.pill{
+  display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;
+  background:var(--bg2);color:var(--ink2);font-size:12px;font-weight:600;white-space:nowrap
+}
+.pill.gold{background:var(--gold-t);color:#9A6E16}
+.pill.accent{background:var(--accent-t);color:var(--accent-d)}
+
+/* ---------- Sidebar / Bottom Nav ---------- */
+.sidenav{display:none}
+.bottomnav{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-top:1px solid var(--line2);
+  padding:6px 0 calc(6px + env(safe-area-inset-bottom));
+  display:flex;justify-content:space-around
+}
+.bn-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 2px;
+  color:var(--ink3);font-size:11px;font-weight:600;transition:color .18s
+}
+.bn-item .ico{font-size:19px;line-height:1.1;filter:grayscale(.55) opacity(.75);transition:.18s}
+.bn-item.on{color:var(--accent-d)}
+.bn-item.on .ico{filter:none;transform:translateY(-1px)}
+.bn-badge{
+  position:absolute;transform:translate(15px,-4px);min-width:16px;height:16px;padding:0 4px;
+  border-radius:8px;background:var(--bad);color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:700
+}
+
+/* ---------- Cards ---------- */
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);border:1px solid var(--line2);padding:18px}
+.card+.card{margin-top:14px}
+.sec-title{
+  display:flex;align-items:center;gap:9px;margin:26px 0 12px;font-size:15px;font-weight:700;color:var(--ink)
+}
+.sec-title .bar{width:3px;height:15px;border-radius:2px;background:var(--accent)}
+.sec-title .cnt{margin-left:auto;font-size:12px;font-weight:600;color:var(--ink3)}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:.01em}
+h2{font-size:17px;margin:0 0 10px}
+.sub{color:var(--ink2);font-size:13px;margin:0 0 18px;line-height:1.6}
+
+/* ---------- Hero ---------- */
+.hero{
+  margin:18px 0 6px;padding:22px;border-radius:var(--r3);
+  background:linear-gradient(135deg,#FFF6EE 0%,#FBE9DE 55%,#F7E2D3 100%);
+  border:1px solid #F0DCCB;position:relative;overflow:hidden
+}
+.hero::after{
+  content:"";position:absolute;right:-40px;top:-50px;width:170px;height:170px;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,164,65,.22),transparent 68%)
+}
+.hero h1{font-size:24px}
+.hero .sub{margin-bottom:16px;color:#6B5245}
+.hero-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;position:relative}
+.hero-cell{background:rgba(255,255,255,.72);border-radius:var(--r2);padding:11px 12px;border:1px solid rgba(255,255,255,.8)}
+.hero-cell b{display:block;font-size:21px;line-height:1.35;color:var(--accent-d);font-variant-numeric:tabular-nums}
+.hero-cell span{font-size:11.5px;color:var(--ink2);font-weight:600}
+
+.progress-track{height:8px;border-radius:5px;background:rgba(255,255,255,.75);overflow:hidden;margin:14px 0 7px}
+.progress-fill{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#D9764F,#D9A441);transition:width .5s cubic-bezier(.4,0,.2,1)}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:11px 18px;border-radius:12px;font-weight:600;font-size:14.5px;
+  background:var(--bg2);color:var(--ink);transition:transform .12s, filter .18s, background .18s;
+  border:1px solid transparent
+}
+.btn:active{transform:scale(.975)}
+.btn.primary{background:linear-gradient(145deg,#D9764F,#B5522F);color:#fff;box-shadow:0 2px 10px rgba(181,82,47,.26)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink2)}
+.btn.sm{padding:7px 13px;font-size:13px;border-radius:10px}
+.btn.block{width:100%}
+
+/* ---------- Chips ---------- */
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none;-ms-overflow-style:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto;padding:7px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);
+  font-size:13px;font-weight:600;color:var(--ink2);transition:.16s;white-space:nowrap
+}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 2px 8px rgba(196,103,74,.25)}
+.chip .n{opacity:.65;font-size:11.5px;margin-left:4px}
+
+/* ---------- Knowledge List ---------- */
+.k-list{display:grid;gap:12px}
+.k-item{
+  background:var(--card);border-radius:var(--r);border:1px solid var(--line2);box-shadow:var(--sh);
+  overflow:hidden;transition:box-shadow .2s
+}
+.k-item.open{box-shadow:var(--sh2)}
+.k-head{display:flex;gap:11px;padding:15px 16px 4px;align-items:flex-start}
+.k-num{
+  flex:0 0 auto;min-width:34px;height:24px;padding:0 7px;border-radius:7px;background:var(--bg2);
+  color:var(--ink2);font-size:12px;font-weight:700;display:grid;place-items:center;font-variant-numeric:tabular-nums;margin-top:2px
+}
+.k-item.star .k-num{background:var(--gold-t);color:#9A6E16}
+.k-title{flex:1;font-weight:600;font-size:15.5px;line-height:1.55}
+.k-star{color:var(--gold);font-size:13px;margin-left:3px}
+.k-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.tag{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--bg2);color:var(--ink2);font-weight:600}
+.tag.cat{background:#EEF2F7;color:#5A6E85}
+.tag.s0{background:var(--bg2);color:var(--ink3)}
+.tag.s1{background:var(--bad-t);color:#A9463F}
+.tag.s2{background:var(--warn-t);color:#A9661F}
+.tag.s3{background:var(--ok-t);color:#5C7A4B}
+.k-body{padding:0 16px 16px;padding-top:9px}
+.k-body p{margin:0 0 9px;font-size:15px;color:#463A2E;line-height:1.85}
+.k-body p:last-child{margin-bottom:0}
+.k-body b{font-weight:700;color:#B04E2C}
+.k-body .lead{font-weight:600;color:var(--ink)}
+.k-body .lst{padding-left:2px}
+.k-body .lst li{position:relative;padding-left:15px;margin-bottom:5px;font-size:15px;line-height:1.8;color:#463A2E}
+.k-body .lst li::before{content:"";position:absolute;left:2px;top:11px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.k-body .lst.num li::before{display:none}
+.k-foot{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px;padding-top:12px;border-top:1px dashed var(--line2)}
+
+/* ---------- Quiz ---------- */
+.quiz-top{display:flex;align-items:center;gap:10px;margin:14px 0 10px;font-size:12.5px;color:var(--ink2);font-weight:600}
+.quiz-top .bar{flex:1;height:5px;border-radius:3px;background:var(--line2);overflow:hidden}
+.quiz-top .bar i{display:block;height:100%;background:linear-gradient(90deg,#D9764F,#D9A441);border-radius:3px;transition:width .35s}
+.quiz-card{
+  background:var(--card);border-radius:var(--r3);box-shadow:var(--sh2);border:1px solid var(--line2);
+  padding:22px;min-height:340px;display:flex;flex-direction:column
+}
+.quiz-src{font-size:12px;color:var(--ink3);font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.quiz-src .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.quiz-q{font-size:18px;line-height:2.05;font-weight:500;margin:12px 0 6px;letter-spacing:.01em}
+.blank{
+  display:inline-block;min-width:88px;border-bottom:2px solid var(--gold);color:var(--accent-d);
+  font-weight:700;text-align:center;padding:0 6px;transition:.2s
+}
+.blank.filled{border-bottom-color:var(--ok);color:var(--ok);background:var(--ok-t);border-radius:4px 4px 0 0}
+.blank.miss{border-bottom-color:var(--bad);color:var(--bad);background:var(--bad-t);border-radius:4px 4px 0 0}
+.quiz-tip{font-size:12.5px;color:var(--ink3);margin:2px 0 0}
+.quiz-fronthint{font-size:14px;font-weight:600;color:var(--ink2);margin-bottom:6px}
+.quiz-fronthint.sub2{font-size:12.5px;font-weight:400;color:var(--ink3);margin:10px 0 0}
+.face-front{cursor:pointer;user-select:none}
+.face-front:active{opacity:.82}
+.face-back .blank{border-bottom-color:var(--ok);color:var(--ok);background:var(--ok-t);border-radius:4px 4px 0 0}
+.answer-box{
+  margin-top:16px;padding:14px 16px;border-radius:var(--r2);background:var(--ok-t);
+  border:1px solid #D8E5CF;font-size:14.5px;line-height:1.9;color:#3F5533
+}
+.answer-box .lbl{font-size:11.5px;font-weight:700;color:#5C7A4B;letter-spacing:.06em;margin-bottom:5px;display:block}
+.answer-box .full{color:#3F5533}
+.selfcheck{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+.sc{
+  padding:13px 6px;border-radius:var(--r2);font-weight:700;font-size:14px;text-align:center;
+  border:1.5px solid transparent;transition:transform .12s,filter .18s;line-height:1.35
+}
+.sc:active{transform:scale(.97)}
+.sc small{display:block;font-size:10.5px;font-weight:600;opacity:.72;margin-top:2px}
+.sc.good{background:var(--ok-t);color:#5C7A4B;border-color:#CFE0C4}
+.sc.mid{background:var(--warn-t);color:#A9661F;border-color:#F0DCC0}
+.sc.bad{background:var(--bad-t);color:#A9463F;border-color:#EFCFCC}
+.quiz-foot{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap}
+.quiz-empty{text-align:center;padding:44px 20px;color:var(--ink2)}
+.quiz-empty .big{font-size:44px;margin-bottom:10px;opacity:.85}
+
+/* reveal */
+@keyframes fade{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+.reveal{animation:fade .25s ease}
+
+/* ---------- Mask fill input ---------- */
+.fillrow{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap}
+.fillrow input{
+  flex:1;min-width:200px;padding:13px 15px;border-radius:var(--r2);border:1.5px solid var(--line);
+  background:var(--bg);outline:none;font-size:16px;transition:.18s
+}
+.fillrow input:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(196,103,74,.10)}
+
+/* ---------- Schedule ---------- */
+.sched-grid{display:grid;gap:12px}
+.day-card{background:var(--card);border-radius:var(--r);border:1px solid var(--line2);box-shadow:var(--sh);padding:15px 16px}
+.day-head{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.day-head b{font-size:15px}
+.day-head .pill{margin-left:auto}
+.day-bar{height:7px;border-radius:4px;background:var(--bg2);overflow:hidden;margin:8px 0 4px;display:flex}
+.day-bar i{height:100%;display:block}
+.day-bar .new{background:linear-gradient(90deg,#D9764F,#D9A441)}
+.day-bar .rev{background:#A8BF97}
+.day-legend{display:flex;gap:14px;font-size:11.5px;color:var(--ink2);font-weight:600}
+.day-legend s{text-decoration:none;display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px}
+.today{outline:2px solid var(--accent);outline-offset:-2px}
+.input-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.input-row label{font-size:13px;font-weight:600;color:var(--ink2)}
+.input-row input[type=date],.input-row input[type=time],.input-row input[type=number]{
+  padding:9px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);outline:none;font-size:14px
+}
+.input-row input:focus{border-color:var(--accent);background:#fff}
+.advice{
+  padding:14px 16px;border-radius:var(--r2);background:linear-gradient(135deg,#FFF8F0,#FDF1E6);
+  border:1px solid #F2E2D2;font-size:14px;line-height:1.85;color:#5A463A
+}
+.advice b{color:var(--accent-d)}
+.advice ul{margin:6px 0 0}
+.advice li{position:relative;padding-left:14px;font-size:13.5px;line-height:1.8}
+.advice li::before{content:"";position:absolute;left:1px;top:10px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+
+/* ---------- Mistakes ---------- */
+.m-list{display:grid;gap:10px}
+.m-item{
+  background:var(--card);border-radius:var(--r2);border:1px solid var(--line2);padding:13px 15px;
+  display:flex;gap:11px;align-items:flex-start;cursor:pointer;transition:.18s;box-shadow:var(--sh)
+}
+.m-item:active{transform:scale(.99)}
+.m-rank{flex:0 0 auto;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:12px;font-weight:700;background:var(--bad-t);color:#A9463F}
+.m-item.s3 .m-rank{background:var(--warn-t);color:#A9661F}
+.m-item .t{flex:1}
+.m-item .t b{font-size:14.5px;font-weight:600;display:block;line-height:1.55}
+.m-item .t span{font-size:11.5px;color:var(--ink3);font-weight:600}
+
+/* ---------- Stats ---------- */
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.stat-box{background:var(--card);border-radius:var(--r2);border:1px solid var(--line2);padding:15px;box-shadow:var(--sh)}
+.stat-box b{display:block;font-size:26px;color:var(--accent-d);line-height:1.3;font-variant-numeric:tabular-nums}
+.stat-box span{font-size:12.5px;color:var(--ink2);font-weight:600}
+.cat-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line2)}
+.cat-row:last-child{border-bottom:0}
+.cat-row .nm{flex:1;font-size:14px;font-weight:600}
+.cat-row .bg{width:78px;height:6px;border-radius:3px;background:var(--bg2);overflow:hidden;flex:0 0 auto}
+.cat-row .bg i{display:block;height:100%;background:linear-gradient(90deg,#D9764F,#D9A441)}
+.cat-row .pc{width:42px;text-align:right;font-size:12.5px;font-weight:700;color:var(--ink2);font-variant-numeric:tabular-nums}
+
+/* ---------- Toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:96px;transform:translate(-50%,14px);z-index:200;
+  background:rgba(51,41,31,.94);color:#fff;padding:11px 18px;border-radius:12px;font-size:13.5px;font-weight:600;
+  opacity:0;pointer-events:none;transition:.26s;max-width:88vw;text-align:center
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+.searchbox{
+  display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r2);padding:10px 14px;margin-bottom:10px
+}
+.searchbox input{flex:1;border:0;outline:none;background:none;font-size:15px}
+.searchbox .ico{color:var(--ink3);font-size:15px}
+
+.fab{
+  position:fixed;right:calc((100vw - var(--maxw))/2 + var(--pad));bottom:calc(92px + env(safe-area-inset-bottom));
+  z-index:80
+}
+@media (max-width:1240px){.fab{right:var(--pad)}}
+
+/* ---------- 窄屏：顶栏只保留必要信息，避免溢出 ---------- */
+@media (max-width:560px){
+  .topbar-in{gap:8px;padding:11px var(--pad)}
+  .brand{font-size:16px;gap:9px}
+  .brand .logo{width:27px;height:27px;border-radius:8px;font-size:13px}
+  .brand small{display:none}
+  #tbStar{display:none}
+  .topbar-stat{gap:6px}
+  .topbar-stat .pill{font-size:11.5px;padding:3px 9px}
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width:700px){
+  :root{--pad:26px}
+  body{font-size:16.5px}
+  .hero-grid{grid-template-columns:repeat(4,1fr)}
+  .hero{padding:28px}
+  .stat-grid{grid-template-columns:repeat(4,1fr)}
+  .sched-grid{grid-template-columns:1fr 1fr}
+  .selfcheck{gap:12px}
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width:1024px){
+  :root{--pad:36px}
+  body{padding-bottom:40px}
+  .bottomnav{display:none}
+  .app{display:grid;grid-template-columns:212px 1fr;gap:28px;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+  .sidenav{display:block;position:sticky;top:76px;align-self:start;padding-top:24px}
+  .sn-item{
+    display:flex;align-items:center;gap:11px;padding:11px 14px;border-radius:12px;
+    color:var(--ink2);font-weight:600;font-size:14.5px;margin-bottom:3px;transition:.16s;width:100%;text-align:left
+  }
+  .sn-item .ico{font-size:17px;filter:grayscale(.5) opacity(.8)}
+  .sn-item:hover{background:var(--bg2)}
+  .sn-item.on{background:var(--accent-t);color:var(--accent-d)}
+  .sn-item.on .ico{filter:none}
+  .sn-item .n{margin-left:auto;font-size:12px;color:var(--ink3);font-weight:700}
+  .main{padding-top:24px;min-width:0}
+  .topbar-in{padding:14px var(--pad)}
+  .quiz-card{padding:30px;min-height:400px}
+  .quiz-q{font-size:19px}
+  .fab{bottom:36px;right:calc((100vw - var(--maxw))/2 + var(--pad))}
+}
+@media (min-width:1024px) and (max-width:1240px){.fab{right:var(--pad)}}
+@media (min-width:1400px){:root{--maxw:1280px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <span class="logo">锦</span>
+      <span>积极分子考试锦囊<small>应知应会 · 知识汇编</small></span>
+    </div>
+    <div class="topbar-stat">
+      <span class="pill gold" id="tbStar">★ 0</span>
+      <span class="pill accent" id="tbPace">—</span>
+      <span class="pill" id="tbSync" style="display:none"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app">
+  <nav class="sidenav" id="sidenav"></nav>
+  <main class="main" id="view"></main>
+</div>
+
+<nav class="bottomnav" id="bottomnav"></nav>
+<div class="toast" id="toast"></div>
+
+<script src="kb-data.js"></script>
+<script>
+/* ============================================================
+   积极分子考试锦囊 — 应用逻辑
+   题库数据由 kb-data.js 提供
+   ============================================================ */
+
+var K = (window.__KB || []);          // 知识点
+var Q = (window.__QB || []);          // 题目（下标即 id）
+var CATS = (window.__CATS || []);     // 板块
+
+/* 把题干中的 [答案] 转成挖空 HTML，并生成答案 HTML */
+function prepQuestions(){
+  for(var i=0;i<Q.length;i++){
+    var qq = Q[i], ans = [], stems = qq.stem.split(/(\[[^\]]*\])/g);
+    qq.stemHTML = stems.map(function(seg){
+      var m = seg.match(/^\[([^\]]*)\]$/);
+      if(m){
+        ans.push(m[1]);
+        var t = m[1];
+        return '<span class="blank" data-a="'+t.replace(/"/g,'&quot;')+'">'+new Array(Math.max(2, t.length)).join('　')+'</span>';
+      }
+      return seg;
+    }).join('');
+    qq.answerHTML = ans.map(function(a){ return '<b>'+a+'</b>'; }).join('　');
+    if(!qq.answerHTML) qq.answerHTML = qq.answer;
+  }
+}
+prepQuestions();
+
+/* ---------- 存储 ---------- */
+var SKEY = 'jjfz_jinnang_v1';
+var store = load();
+
+function normalize(o){
+  o = o || {};
+  o.items = o.items || {};
+  o.mistakes = o.mistakes || {};
+  o.conf = o.conf || { examDate:'', dailyNew:25 };
+  o.confAt = o.confAt || 0;
+  return o;
+}
+function load(){
+  try{
+    var raw = localStorage.getItem(SKEY);
+    if(raw) return normalize(JSON.parse(raw));
+  }catch(e){}
+  return normalize({ conf:{ examDate:'', dailyNew:25 } });
+}
+var STORAGE_OK = (function(){
+  try{ localStorage.setItem('__t','1'); localStorage.removeItem('__t'); return true; }
+  catch(e){ return false; }
+})();
+function save(){
+  try{ localStorage.setItem(SKEY, JSON.stringify(store)); }catch(e){}
+  syncSchedulePush();
+}
+
+/* 累计作答统计由 items 派生，这样两端合并后不会重复计数 */
+function calcStats(){
+  var done = 0, correct = 0;
+  for(var id in store.items){
+    var it = store.items[id];
+    done += (it.r||0) + (it.w||0) + (it.f||0);
+    correct += (it.r||0);
+  }
+  return { done:done, correct:correct };
+}
+
+/* ---------- 双向合并：逐题按最后作答时间取新 ---------- */
+function mergeStore(a, b){
+  a = normalize(a); b = normalize(b);
+  var out = normalize({}), id;
+  var ids = {};
+  for(id in a.items) ids[id] = 1;
+  for(id in b.items) ids[id] = 1;
+
+  for(id in ids){
+    var x = a.items[id], y = b.items[id], pick, src;
+    if(!x){ pick = y; src = b; }
+    else if(!y){ pick = x; src = a; }
+    else if((x.last||0) >= (y.last||0)){ pick = x; src = a; }
+    else { pick = y; src = b; }
+    out.items[id] = pick;
+    // 错题计数跟随被选中的那一端，避免两边数字相加
+    if(src.mistakes[id]) out.mistakes[id] = src.mistakes[id];
+  }
+
+  // 设置项（考试日期等）整体取更新时间较晚的一端
+  if((a.confAt||0) >= (b.confAt||0)){ out.conf = a.conf; }
+  else { out.conf = b.conf; }
+  out.confAt = Math.max(a.confAt||0, b.confAt||0);
+  return out;
+}
+
+/* ============================================================
+   云同步：GitHub Gist 私有片段
+   - token 与 gistId 只存本机，不参与同步（token 是凭据）
+   - 每次同步 = 拉云端 → 双向合并 → 推回，所以两端都不会丢数据
+   ============================================================ */
+var CKEY = 'jjfz_jinnang_sync_v1';
+var GIST_FILE = 'jinnang-progress.json';
+var cloud = loadCloud();
+var syncBusy = false, syncTimer = null, syncLast = 0, syncState = 'off';
+
+function loadCloud(){
+  try{
+    var raw = localStorage.getItem(CKEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return { token:'', gistId:'', lastSync:0, auto:true };
+}
+function saveCloud(){
+  try{ localStorage.setItem(CKEY, JSON.stringify(cloud)); }catch(e){}
+}
+function syncOn(){ return !!(cloud.token && cloud.gistId); }
+
+function setExamDate(v){
+  store.conf.examDate = v;
+  store.confAt = Date.now();
+  save(); render(); renderNav();
+}
+
+function ghHeaders(){
+  return {
+    'Authorization': 'Bearer ' + cloud.token,
+    'Accept': 'application/vnd.github+json',
+    'Content-Type': 'application/json'
+  };
+}
+function payload(){ return JSON.stringify({ items:store.items, mistakes:store.mistakes, conf:store.conf, confAt:store.confAt||0, v:1 }); }
+
+/* 创建云端存储 */
+function createGist(){
+  var t = $('#ghToken');
+  var token = (t && t.value.trim()) || cloud.token;
+  if(!token){ toast('请先填入 GitHub Token'); return; }
+  cloud.token = token; syncState = 'busy'; saveCloud(); render();
+  fetch('https://api.github.com/gists', {
+    method:'POST',
+    headers: ghHeaders(),
+    body: JSON.stringify({
+      description:'积极分子考试锦囊 · 学习进度',
+      public:false,
+      files: (function(){ var o = {}; o[GIST_FILE] = { content: payload() }; return o; })()
+    })
+  }).then(function(r){
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  }).then(function(j){
+    cloud.gistId = j.id; cloud.lastSync = Date.now(); syncState = 'ok'; saveCloud();
+    toast('云端存储已创建'); render();
+  }).catch(function(e){
+    syncState = 'err'; saveCloud();
+    toast('创建失败：' + e.message + '（检查 Token 是否有 gist 权限）'); render();
+  });
+}
+
+/* 绑定已有的云端存储（第二台设备用这个） */
+function bindGist(){
+  var g = $('#ghGist');
+  var t = $('#ghToken');
+  var gid = (g && g.value.trim()) || cloud.gistId;
+  var token = (t && t.value.trim()) || cloud.token;
+  if(!token || !gid){ toast('请同时填入 Token 和 Gist ID'); return; }
+  cloud.token = token; cloud.gistId = gid; syncState = 'busy'; saveCloud(); render();
+  doSync(false).then(function(){
+    toast('已连接云端存储'); render();
+  }).catch(function(e){
+    toast('连接失败：' + e.message + '（Token 或 Gist ID 是否正确？）'); render();
+  });
+}
+
+/* 断开同步（本机进度保留） */
+function unbindGist(){
+  if(!confirm('断开云同步？本机学习进度会保留，只是不再与云端同步。')) return;
+  cloud.token = ''; cloud.gistId = ''; cloud.lastSync = 0; syncState = 'off';
+  saveCloud(); render(); renderNav(); toast('已断开云同步');
+}
+
+/* 核心：拉取 → 合并 → 推送 */
+function doSync(silent){
+  if(!syncOn()) return Promise.reject(new Error('尚未配置云同步'));
+  if(syncBusy) return Promise.resolve();
+  syncBusy = true; syncState = 'busy';
+  if(!silent) { render(); updateSyncUI(); }
+
+  return fetch('https://api.github.com/gists/' + cloud.gistId, { headers: ghHeaders() })
+    .then(function(r){
+      if(!r.ok) throw new Error('HTTP ' + r.status + (r.status === 401 ? '（Token 无效或过期）' : ''));
+      return r.json();
+    })
+    .then(function(j){
+      var f = j.files && j.files[GIST_FILE];
+      var remote = null;
+      if(f && f.content){
+        try{ remote = JSON.parse(f.content); }catch(e){ remote = null; }
+      }
+      var merged = remote ? mergeStore(store, remote) : store;
+      store = normalize(merged);
+      try{ localStorage.setItem(SKEY, JSON.stringify(store)); }catch(e){}
+
+      return fetch('https://api.github.com/gists/' + cloud.gistId, {
+        method:'PATCH',
+        headers: ghHeaders(),
+        body: JSON.stringify({ files: (function(){ var o = {}; o[GIST_FILE] = { content: payload() }; return o; })() })
+      });
+    })
+    .then(function(r){
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      cloud.lastSync = Date.now(); syncState = 'ok'; syncBusy = false;
+      syncLast = Date.now();
+      saveCloud();
+      renderNav();                      // 角标数量可能变了，总是刷新
+      if(!silent){ toast('同步完成'); render(); }
+      else if(cur === 'quiz' && QZ.live){
+        updateSyncUI();                 // 答题中不重绘，避免清掉已输入的内容
+      }else{
+        render();                       // 静默同步也让页面反映云端合并结果
+      }
+    })
+    .catch(function(e){
+      syncBusy = false; syncState = 'err'; saveCloud();
+      if(!silent){ toast('同步失败：' + e.message); render(); }
+      else { updateSyncUI(); }
+      throw e;
+    });
+}
+
+/* 作答后延迟推送（4 秒防抖，避免连续答题频繁请求） */
+function syncSchedulePush(){
+  if(!syncOn() || !cloud.auto) return;
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(function(){ doSync(true).catch(function(){}); }, 4000);
+}
+
+/* 回到页面时拉取一次（节流 20 秒） */
+function syncPullIfStale(){
+  if(!syncOn() || !cloud.auto) return;
+  if(Date.now() - syncLast < 20000) return;
+  syncLast = Date.now();
+  doSync(true).catch(function(){});
+}
+
+function toggleAuto(){
+  cloud.auto = !cloud.auto; saveCloud(); render();
+  toast(cloud.auto ? '已开启自动同步' : '已关闭自动同步');
+}
+
+function fmtTime(ts){
+  if(!ts) return '尚未同步';
+  var d = new Date(ts), now = new Date();
+  var hm = ('0'+d.getHours()).slice(-2) + ':' + ('0'+d.getMinutes()).slice(-2);
+  if(todayStr(d) === todayStr(now)) return '今天 ' + hm;
+  return (d.getMonth()+1) + '月' + d.getDate() + '日 ' + hm;
+}
+function syncLabel(short){
+  if(!syncOn()) return '未开启同步';
+  if(syncBusy) return short ? '同步中' : '同步中…';
+  if(syncState === 'err') return '同步失败';
+  if(!cloud.lastSync) return short ? '待同步' : '已连接 · 尚未同步';
+  return short ? '已同步' : ('已同步 ' + fmtTime(cloud.lastSync));
+}
+function updateSyncUI(){
+  var el = $('#tbSync');
+  if(!el) return;
+  if(!syncOn()){ el.style.display = 'none'; return; }
+  el.style.display = '';
+  // 顶栏空间紧张，标题里带时间容易溢出，窄屏用短文案
+  var narrow = (typeof window !== 'undefined') && window.matchMedia
+             && window.matchMedia('(max-width:560px)').matches;
+  el.textContent = syncLabel(narrow);
+  el.title = syncLabel(false);
+  el.className = 'pill ' + (syncState === 'err' ? '' : 'gold');
+}
+
+/* ---------- 艾宾浩斯间隔（分钟） ---------- */
+var IV = [5, 30, 12*60, 24*60, 2*24*60, 4*24*60, 7*24*60, 15*24*60, 30*24*60];
+
+/* 依据考试日期截断间隔，保证考前能走完多轮 */
+function effIntervals(){
+  var ex = store.conf.examDate;
+  if(!ex) return IV;
+  var left = Math.max(1, Math.floor((new Date(ex+'T23:59:59') - Date.now())/86400000));
+  var out = [];
+  for(var i=0;i<IV.length;i++){
+    if(IV[i] < left*24*60) out.push(IV[i]);
+  }
+  if(out.length < 3) out = IV.slice(0,3);
+  return out;
+}
+
+function itemOf(id){
+  var it = store.items[id];
+  if(!it){ it = { st:0, last:0, next:0, r:0, w:0, f:0, seen:0 }; store.items[id] = it; }
+  return it;
+}
+
+/* 记录一次作答：rating = 0 记得 / 1 记不清 / 2 完全没听过 */
+function grade(id, rating){
+  var it = itemOf(id), iv = effIntervals(), now = Date.now();
+  it.seen++;
+  it.last = now;
+  if(rating === 0){
+    it.r++; it.st = Math.min(it.st + 1, iv.length - 1);
+  }else if(rating === 1){
+    it.w++; it.st = Math.max(0, Math.min(it.st - 1, 1));
+  }else{
+    it.f++; it.st = 0;
+  }
+  if(rating === 0 && it.st === iv.length - 1){ it.st = iv.length - 1; }
+  it.next = now + iv[it.st]*60000;
+
+  if(rating > 0){
+    store.mistakes[id] = (store.mistakes[id] || 0) + 1;
+  }else if(store.mistakes[id]){
+    store.mistakes[id] = Math.max(0, store.mistakes[id] - 1);
+    if(!store.mistakes[id]) delete store.mistakes[id];
+  }
+  save();
+  return it;
+}
+
+function mastery(it){
+  if(!it || !it.seen) return 0;
+  if(it.st >= effIntervals().length - 1) return 3;
+  if(it.st >= 2) return 2;
+  return 1;
+}
+var MTAG = ['未学','初记','巩固','熟练'];
+
+function dueIds(){
+  var now = Date.now(), out = [];
+  for(var i=0;i<Q.length;i++){
+    var it = store.items[Q[i].id];
+    if(it && it.seen && it.next <= now) out.push(Q[i].id);
+  }
+  return out;
+}
+function newIds(){
+  var out = [];
+  for(var i=0;i<Q.length;i++){
+    if(!store.items[Q[i].id] || !store.items[Q[i].id].seen) out.push(Q[i].id);
+  }
+  return out;
+}
+
+/* ---------- 工具 ---------- */
+function $(s,r){ return (r||document).querySelector(s); }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function todayStr(d){
+  d = d || new Date();
+  var m = ('0'+(d.getMonth()+1)).slice(-2), dd = ('0'+d.getDate()).slice(-2);
+  return d.getFullYear()+'-'+m+'-'+dd;
+}
+function dayDiff(a,b){ // 相差天数 a 晚于 b
+  return Math.round((new Date(a+'T00:00:00') - new Date(b+'T00:00:00'))/86400000);
+}
+function toast(msg){
+  var t = $('#toast'); t.textContent = msg; t.classList.add('on');
+  clearTimeout(t._t); t._t = setTimeout(function(){ t.classList.remove('on'); }, 1900);
+}
+function shuffle(a){
+  for(var i=a.length-1;i>0;i--){ var j = Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+  return a;
+}
+function catName(id){
+  for(var i=0;i<CATS.length;i++) if(CATS[i].k === id) return CATS[i].n;
+  return id;
+}
+
+/* ---------- 路由 ---------- */
+var ROUTES = [
+  {k:'home',  n:'总览',      ico:'🏠'},
+  {k:'kb',    n:'知识库',    ico:'📖'},
+  {k:'quiz',  n:'背诵检测',  ico:'✍️'},
+  {k:'plan',  n:'记忆时间表',ico:'📅'},
+  {k:'wrong', n:'错题本',    ico:'🔖'},
+  {k:'stat',  n:'统计',      ico:'📊'}
+];
+var cur = 'home';
+
+function nav(k){
+  cur = k; location.hash = k;
+  renderNav(); render();
+  window.scrollTo({ top:0, behavior:'instant' in window ? 'instant' : 'auto' });
+}
+function renderNav(){
+  var wn = store.mistakes ? Object.keys(store.mistakes).length : 0;
+  var due = dueIds().length;
+  var badgeOf = { quiz: due, wrong: wn };
+  $('#bottomnav').innerHTML = ROUTES.map(function(r){
+    var b = badgeOf[r.k] || 0;
+    return '<button class="bn-item'+(cur===r.k?' on':'')+'" onclick="nav(\''+r.k+'\')" style="position:relative">'
+      + '<span class="ico">'+r.ico+'</span>'+r.n
+      + (b ? '<span class="bn-badge">'+(b>99?'99+':b)+'</span>' : '')
+      + '</button>';
+  }).join('');
+  $('#sidenav').innerHTML = ROUTES.map(function(r){
+    var b = badgeOf[r.k] || 0;
+    return '<button class="sn-item'+(cur===r.k?' on':'')+'" onclick="nav(\''+r.k+'\')">'
+      + '<span class="ico">'+r.ico+'</span>'+r.n
+      + (b ? '<span class="n">'+(b>99?'99+':b)+'</span>' : '') + '</button>';
+  }).join('');
+}
+function render(){
+  var f = { home:vHome, kb:vKB, quiz:vQuiz, plan:vPlan, wrong:vWrong, stat:vStat }[cur] || vHome;
+  var warn = STORAGE_OK ? '' :
+    '<div class="card" style="background:var(--bad-t);border-color:#EFCFCC;font-size:13px;color:#A9463F;line-height:1.75">'
+    + '<b>⚠ 当前浏览器限制了本地存储</b><br>学习进度可能无法保存。建议改用 Chrome / Edge / Safari 直接打开，或把文件放到本机后双击打开。</div>';
+  $('#view').innerHTML = warn + f();
+  updateTopbar();
+}
+function updateTopbar(){
+  var star = 0, starSeen = 0, tot = 0, seen = 0;
+  for(var i=0;i<Q.length;i++){
+    var it = store.items[Q[i].id], k = K[Q[i].kid];
+    if(k && k.star){ star++; if(it && it.seen) starSeen++; }
+    tot++; if(it && it.seen) seen++;
+  }
+  $('#tbStar').textContent = '★ ' + starSeen + '/' + star;
+  var ex = store.conf.examDate;
+  if(ex){
+    var d = dayDiff(ex, todayStr());
+    $('#tbPace').textContent = d >= 0 ? ('距考试 '+d+' 天') : '考试日已过';
+  }else{
+    $('#tbPace').textContent = '已学 ' + seen + '/' + tot;
+  }
+  updateSyncUI();
+}
+
+/* ============================================================
+   视图：总览
+   ============================================================ */
+function vHome(){
+  var tot = Q.length, seen = 0, mast = 0, starTot = 0, starDone = 0;
+  for(var i=0;i<Q.length;i++){
+    var it = store.items[Q[i].id], k = K[Q[i].kid];
+    if(k && k.star) starTot++;
+    if(it && it.seen){ seen++; if(mastery(it) >= 2) mast++; if(k && k.star) starDone++; }
+  }
+  var pc = tot ? Math.round(seen/tot*100) : 0;
+  var due = dueIds().length, nw = newIds().length;
+  var wn = Object.keys(store.mistakes).length;
+  var ex = store.conf.examDate;
+  var dLeft = ex ? dayDiff(ex, todayStr()) : null;
+
+  var html = ''
+  + '<div class="hero">'
+  +   '<h1>积极分子考试锦囊</h1>'
+  +   '<p class="sub">学生党员和入党积极分子应知应会知识汇编 · 共 '+K.length+' 个知识点 / '+tot+' 道自测题</p>'
+  +   '<div class="hero-grid">'
+  +     '<div class="hero-cell"><b>'+seen+'</b><span>已学题目</span></div>'
+  +     '<div class="hero-cell"><b>'+mast+'</b><span>已巩固</span></div>'
+  +     '<div class="hero-cell"><b>'+starDone+'</b><span>★核心已学</span></div>'
+  +     '<div class="hero-cell"><b>'+(wn)+'</b><span>待攻克错题</span></div>'
+  +   '</div>'
+  +   '<div class="progress-track"><i class="progress-fill" style="width:'+pc+'%"></i></div>'
+  +   '<div style="font-size:12.5px;color:#6B5245;font-weight:600">总进度 '+pc+'%　·　★核心必须熟练掌握</div>'
+  + '</div>';
+
+  html += '<div class="sec-title"><span class="bar"></span>今日任务</div>';
+  html += '<div class="card">';
+  if(!ex){
+    html += '<p style="margin:0 0 12px;font-size:14.5px;color:var(--ink2)">还没有设置考试日期。设置后系统会自动按剩余天数倒推每天的背诵量，并给出时间建议。</p>';
+    html += '<button class="btn primary block" onclick="nav(\'plan\')">去设置考试日期</button>';
+  }else{
+    html += '<div class="input-row" style="margin-bottom:10px">'
+      + '<span class="pill accent">距考试 '+dLeft+' 天</span>'
+      + '<span class="pill">待复习 '+due+'</span>'
+      + '<span class="pill">未学 '+nw+'</span>'
+      + '</div>';
+    var perDay = dLeft > 0 ? Math.ceil(nw / dLeft) : nw;
+    html += '<p style="margin:0 0 12px;font-size:14.5px;color:var(--ink2);line-height:1.85">'
+      + '按当前进度，每天需新学 <b style="color:var(--accent-d)">'+perDay+'</b> 题'
+      + (due ? '，并复习 <b style="color:var(--accent-d)">'+due+'</b> 道到期题' : '，今天暂无到期复习')
+      + '，可在考前完成全部内容。建议每天分两次：早上新学，睡前复习。</p>';
+  }
+  html += '<div style="display:flex;gap:9px;flex-wrap:wrap">'
+    + '<button class="btn primary" onclick="startQuiz(\'mix\')">开始今日背诵</button>'
+    + '<button class="btn ghost" onclick="startQuiz(\'star\')">只背 ★ 核心</button>'
+    + '<button class="btn ghost" onclick="startQuiz(\'wrong\')">只刷错题</button>'
+    + '</div>';
+  html += '</div>';
+
+  html += '<div class="sec-title"><span class="bar"></span>板块掌握情况</div><div class="card">';
+  CATS.forEach(function(c){
+    var ks = K.filter(function(k){ return k.cat === c.k; });
+    var qids = [], i, j;
+    for(i=0;i<ks.length;i++) for(j=0;j<Q.length;j++) if(Q[j].kid === ks[i].id) qids.push(Q[j].id);
+    var s = 0; qids.forEach(function(id){ if(store.items[id] && store.items[id].seen) s++; });
+    var p = qids.length ? Math.round(s/qids.length*100) : 0;
+    html += '<div class="cat-row"><span class="nm">'+c.n+'</span>'
+      + '<span class="bg"><i style="width:'+p+'%"></i></span>'
+      + '<span class="pc">'+p+'%</span></div>';
+  });
+  html += '</div>';
+
+  html += '<div class="sec-title"><span class="bar"></span>使用说明</div><div class="card" style="font-size:14px;color:var(--ink2);line-height:1.9">'
+    + '<p style="margin:0 0 8px"><b style="color:var(--ink)">知识库</b>：按 6 大板块归类 120 个知识点，★ 为必须熟练掌握的核心基础。点标题展开全文，支持搜索与只看 ★。</p>'
+    + '<p style="margin:0 0 8px"><b style="color:var(--ink)">背诵检测</b>：仿百词斩，挖空作答。作答后选择「记得 / 记不清 / 完全没听过」，系统显示答案并按艾宾浩斯遗忘曲线安排下次复习时间。</p>'
+    + '<p style="margin:0 0 8px"><b style="color:var(--ink)">记忆时间表</b>：填写考试日期与每日可背诵时长，自动倒推每日任务量与背诵时段建议。</p>'
+    + '<p style="margin:0"><b style="color:var(--ink)">错题本</b>：选「记不清」「完全没听过」的题自动汇入，按错误次数排序，考前最后一天只看它就够了。</p>'
+    + '</div>';
+  return html;
+}
+
+/* ============================================================
+   视图：知识库
+   ============================================================ */
+var KBSTATE = { cat:'all', star:false, kw:'' };
+
+/* 去掉 <b> 标签后的纯文本，供搜索比对（预计算一次） */
+(function(){
+  for(var i=0;i<K.length;i++){
+    K[i]._plain = (K[i].title + ' ' + K[i].body.join('')).replace(/<[^>]+>/g,'').toLowerCase();
+  }
+})();
+function kbMatch(k, q){
+  return k._plain.indexOf(q) >= 0;
+}
+
+function vKB(){
+  var list = K.filter(function(k){
+    if(KBSTATE.cat !== 'all' && k.cat !== KBSTATE.cat) return false;
+    if(KBSTATE.star && !k.star) return false;
+    if(KBSTATE.kw && !kbMatch(k, KBSTATE.kw.toLowerCase())) return false;
+    return true;
+  });
+
+  var html = '<h1 style="margin-top:18px">知识库</h1><p class="sub">按板块归类整理，★ 为必须熟练掌握的核心基础知识，加粗处为原文强调的重点。</p>';
+
+  html += '<div class="searchbox"><span class="ico">🔍</span>'
+    + '<input id="kbKw" placeholder="搜索知识点关键词，如「民主集中制」" value="'+esc(KBSTATE.kw)+'" oninput="KBSTATE.kw=this.value;renderKBList()">'
+    + '</div>';
+
+  html += '<div class="chips">';
+  html += '<button class="chip'+(KBSTATE.cat==='all'&&!KBSTATE.star?' on':'')+'" onclick="KBSTATE.cat=\'all\';KBSTATE.star=false;render()">全部<span class="n">'+K.length+'</span></button>';
+  html += '<button class="chip'+(KBSTATE.star?' on':'')+'" onclick="KBSTATE.star=!KBSTATE.star;KBSTATE.cat=\'all\';render()">★ 核心必考<span class="n">'+K.filter(function(k){return k.star}).length+'</span></button>';
+  CATS.forEach(function(c){
+    var n = K.filter(function(k){ return k.cat === c.k; }).length;
+    html += '<button class="chip'+(KBSTATE.cat===c.k?' on':'')+'" onclick="KBSTATE.cat=\''+c.k+'\';KBSTATE.star=false;render()">'+c.n+'<span class="n">'+n+'</span></button>';
+  });
+  html += '</div>';
+
+  html += '<div id="kbList">'+kbListHTML(list)+'</div>';
+  return html;
+}
+/* 取某知识点下的第一题 id（用于展示掌握度、加入错题本） */
+var __firstQ = {};
+(function(){
+  for(var i=0;i<Q.length;i++) if(!(Q[i].kid in __firstQ)) __firstQ[Q[i].kid] = Q[i].id;
+})();
+function firstQid(kid){ return __firstQ[kid]; }
+
+function kbListHTML(list){
+  if(!list.length) return '<div class="card quiz-empty"><div class="big">🔍</div>没有匹配的知识点</div>';
+  return '<div class="k-list">' + list.map(function(k){
+    var m = mastery(store.items[firstQid(k.id)]);
+    return '<div class="k-item'+(k.star?' star':'')+'" id="k-'+k.id+'">'
+      + '<div class="k-head">'
+      +   '<span class="k-num">'+k.no+'</span>'
+      +   '<div class="k-title">'+k.title+(k.star?'<span class="k-star">★</span>':'')
+      +     '<div class="k-meta"><span class="tag cat">'+catName(k.cat)+'</span>'
+      +     (k.star?'<span class="tag">核心必考</span>':'')
+      +     '<span class="tag s'+m+'">'+MTAG[m]+'</span></div>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="k-body">' + k.body.map(function(p){ return '<p>'+p+'</p>'; }).join('')
+      +   '<div class="k-foot">'
+      +     '<button class="btn sm" onclick="startQuiz(\'point\','+k.id+')">背诵这一条</button>'
+      +     '<button class="btn sm ghost" onclick="markWrong('+k.id+')">加入错题本</button>'
+      +   '</div>'
+      + '</div></div>';
+  }).join('') + '</div>';
+}
+function markWrong(kid){
+  var qid = firstQid(kid);
+  if(qid === undefined) return;
+  store.mistakes[qid] = Math.max(1, store.mistakes[qid] || 1);
+  // 同步合并按 last 取新，这里也要推进时间戳，否则手动标记会被另一端覆盖
+  itemOf(qid).last = Date.now();
+  save(); renderKBList(); renderNav();
+  toast('已加入错题本：' + (K[kid] ? K[kid].title : ''));
+}
+function renderKBList(){
+  if(!$('#kbList')) return;      // 不在知识库页时静默跳过
+  var list = K.filter(function(k){
+    if(KBSTATE.cat !== 'all' && k.cat !== KBSTATE.cat) return false;
+    if(KBSTATE.star && !k.star) return false;
+    if(KBSTATE.kw && !kbMatch(k, KBSTATE.kw.toLowerCase())) return false;
+    return true;
+  });
+  $('#kbList').innerHTML = kbListHTML(list);
+}
+
+/* ============================================================
+   视图：背诵检测
+   ============================================================ */
+var QZ = { queue:[], i:0, live:false, mode:'mix', cur:null, revealed:false, chosen:{} };
+var MODES = { mix:'智能混合', star:'★ 核心必考', newq:'只学新题', due:'只复习到期', wrong:'只刷错题', point:'单条精练' };
+
+function buildQueue(mode, kp){
+  var ids = [], i;
+  if(mode === 'wrong'){ ids = Object.keys(store.mistakes).map(Number); }
+  else if(mode === 'due'){ ids = dueIds(); }
+  else if(mode === 'newq'){ ids = newIds(); }
+  else if(mode === 'star'){
+    for(i=0;i<Q.length;i++){ var k = K[Q[i].kid]; if(k && k.star) ids.push(Q[i].id); }
+  }
+  else if(mode === 'point'){
+    for(i=0;i<Q.length;i++) if(Q[i].kid === kp) ids.push(Q[i].id);
+  }
+  else { // mix：到期优先，其次新题，再按重要度补足
+    var due = dueIds(), nw = newIds();
+    ids = due.concat(nw);
+    if(ids.length < 30){
+      var rest = Q.map(function(q){ return q.id; }).filter(function(id){ return ids.indexOf(id) < 0; });
+      ids = ids.concat(rest);
+    }
+  }
+  var map = {}; ids.forEach(function(id){ map[id] = 1; });
+  ids = ids.filter(function(id, idx){ return ids.indexOf(id) === idx && map[id]; });
+
+  var arr = ids.map(function(id){ return Q[id]; });   // Q 按 id 索引
+  // 排序：★ 优先 → 未学/生疏优先 → 原序
+  arr.sort(function(a,b){
+    var ka = K[a.kid] || {}, kb = K[b.kid] || {};
+    var sa = ka.star ? 0 : 1, sb = kb.star ? 0 : 1;
+    if(sa !== sb) return sa - sb;
+    var ia = store.items[a.id], ib = store.items[b.id];
+    var ma = mastery(ia), mb = mastery(ib);
+    if(ma !== mb) return ma - mb;
+    return a.id - b.id;
+  });
+  if(mode === 'mix' || mode === 'star' || mode === 'newq') arr = shuffle(arr);
+  return arr.map(function(q){ return q.id; });
+}
+
+function startQuiz(mode, kp){
+  QZ.queue = buildQueue(mode, kp);
+  QZ.i = 0; QZ.live = true; QZ.mode = mode; QZ.revealed = false; QZ.chosen = {};
+  if(!QZ.queue.length){
+    nav('quiz');
+    setTimeout(function(){ toast('该范围暂时没有需要背诵的题目'); }, 120);
+    return;
+  }
+  nav('quiz');
+}
+
+/* ---- 预测评分后的下次复习间隔（用于按钮上的提示，仿百词斩） ---- */
+function predict(st, rating){
+  var iv = effIntervals(), n;
+  if(rating === 0) n = Math.min(st + 1, iv.length - 1);
+  else if(rating === 1) n = Math.max(0, Math.min(st - 1, 1));
+  else n = 0;
+  return iv[n];
+}
+function fmtIntv(m){
+  if(m < 60) return m + '分钟后';
+  if(m < 1440) return (m%60 ? (m/60).toFixed(1) : m/60) + '小时后';
+  return Math.round(m/1440) + '天后';
+}
+function scSub(st, rating){
+  if(rating === 2) return '今日重排 / 明天再练';
+  var m = predict(st, rating);
+  if(rating === 0) return '下次 ' + fmtIntv(m);
+  return '今日再练 / 下次 ' + fmtIntv(m);
+}
+
+function vQuiz(){
+  if(!QZ.live){
+    return '<h1 style="margin-top:18px">背诵检测</h1>'
+      + '<p class="sub">先自己回忆答案，再选择掌握程度；系统会按艾宾浩斯遗忘曲线安排下次复习时间。</p>'
+      + '<div class="card">'
+      +   '<h2>选择背诵模式</h2>'
+      +   '<p style="font-size:14px;color:var(--ink2);margin:0 0 14px">到期复习 '+dueIds().length+' 题　·　待学新题 '+newIds().length+' 题　·　错题 '+Object.keys(store.mistakes).length+' 题</p>'
+      +   '<div style="display:grid;gap:9px">'
+      +     '<button class="btn primary block" onclick="startQuiz(\'mix\')">智能混合（推荐）<span style="opacity:.7;font-size:12px">到期 + 新题</span></button>'
+      +     '<button class="btn block" onclick="startQuiz(\'star\')">★ 核心必考专项</button>'
+      +     '<button class="btn block" onclick="startQuiz(\'due\')">只复习今天到期的</button>'
+      +     '<button class="btn block" onclick="startQuiz(\'newq\')">只学没做过的</button>'
+      +     '<button class="btn block" onclick="startQuiz(\'wrong\')">只刷错题本</button>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="card" style="font-size:13.5px;color:var(--ink2);line-height:1.85">'
+      +   '<b style="color:var(--ink)">怎么用效果最好</b><br>'
+      +   '① 看到题目先在心里默答，别急着翻答案；<br>'
+      +   '② 拿不准就诚实点「记不清」，系统会缩短它的复习间隔；<br>'
+      +   '③ 每天固定两个时间点：早上学新内容，睡前把当天到期的复习一轮。'
+      + '</div>';
+  }
+  var q = Q[QZ.queue[QZ.i]];
+  if(!q){
+    QZ.live = false;
+    var cnt = Object.keys(QZ.chosen).length;
+    return '<div class="card quiz-empty" style="margin-top:20px"><div class="big">🎉</div>'
+      + '<h2>本轮背诵完成</h2>'
+      + '<p style="font-size:14px;color:var(--ink2)">共完成 '+cnt+' 题，已按遗忘曲线排好下次复习时间。</p>'
+      + '<div style="display:flex;gap:9px;justify-content:center;margin-top:16px;flex-wrap:wrap">'
+      + '<button class="btn primary" onclick="startQuiz(\'mix\')">再来一轮</button>'
+      + '<button class="btn ghost" onclick="QZ.live=false;nav(\'plan\')">看记忆时间表</button>'
+      + '</div></div>';
+  }
+  var k = K[q.kid] || {};
+  var it = store.items[q.id];
+  var m = mastery(it);
+  var st = it ? it.st : 0;
+  var total = QZ.queue.length, pos = QZ.i + 1;
+  var pc = Math.round(QZ.i/total*100);
+
+  var html = '<div class="quiz-top"><span>'+MODES[QZ.mode]+'</span><span class="bar"><i style="width:'+pc+'%"></i></span><span>'+pos+' / '+total+'</span></div>';
+
+  html += '<div class="quiz-card">';
+  html += '<div class="quiz-src"><span class="dot"></span>'+catName(k.cat)+' · 第 '+k.no+' 条'+(k.star?' · ★ 核心':'')+'<span class="tag s'+m+'">'+MTAG[m]+'</span></div>';
+  html += '<div style="font-size:12.5px;color:var(--ink3);font-weight:600;margin-bottom:2px">'+q.kind+'</div>';
+
+  if(!QZ.revealed){
+    /* ---- 正面：只给题干，点击任意处翻面 ---- */
+    html += '<div class="quiz-fronthint">请回忆答案</div>';
+    html += '<div class="quiz-q face-front" id="quizQ" onclick="reveal()">'+q.stemHTML+'</div>';
+    html += '<div class="quiz-fronthint sub2" onclick="reveal()">点击题干显示答案</div>';
+    html += '<div class="fillrow" style="margin-top:auto">'
+      + '<input id="quizInput" placeholder="'+esc(q.hint||'可先默写关键词，回车翻面')+'" autocomplete="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key===\'Enter\')reveal()">'
+      + '<button class="btn primary" onclick="reveal()">翻面看答案</button></div>';
+  }else{
+    /* ---- 反面：题干带答案 + 三档自评，按钮上直接标下次复习时间 ---- */
+    html += '<div class="quiz-q face-back reveal" id="quizQ">'+q.stemHTML+'</div>';
+    html += '<div class="answer-box reveal"><span class="lbl">正确答案</span>'
+      + '<div>'+q.answerHTML+'</div>'
+      + (q.src ? '<div style="margin-top:8px;font-size:12.5px;opacity:.82">出处：'+esc(q.src)+'</div>' : '')
+      + '</div>';
+    html += '<div class="selfcheck" style="margin-top:auto">'
+      + '<button class="sc good" onclick="answer(0)">记得<small>'+scSub(st,0)+'</small></button>'
+      + '<button class="sc mid" onclick="answer(1)">记不清<small>'+scSub(st,1)+'</small></button>'
+      + '<button class="sc bad" onclick="answer(2)">完全没听过<small>'+scSub(st,2)+'</small></button>'
+      + '</div>';
+  }
+  html += '<div class="quiz-foot">'
+    + '<button class="btn sm ghost" onclick="if(confirm(\'结束本轮背诵？\')){QZ.live=false;nav(\'quiz\')}">结束本轮</button>'
+    + '<button class="btn sm ghost" onclick="nav(\'kb\')">查知识库</button>'
+    + (QZ.revealed ? '<button class="btn sm ghost" style="margin-left:auto" onclick="toast(\'已跳过，稍后会再出现\')">跳过</button>' : '')
+    + '</div>';
+  html += '</div>';
+  return html;
+}
+
+function reveal(){
+  var inp = document.getElementById('quizInput');
+  QZ.draft = inp ? inp.value.trim() : '';
+  QZ.revealed = true;
+  render();
+  // 翻面后把挖空处填上正确答案
+  var el = document.getElementById('quizQ');
+  if(el){
+    var ns = el.querySelectorAll('.blank');
+    for(var i=0;i<ns.length;i++){
+      ns[i].textContent = ns[i].getAttribute('data-a') || '';
+      ns[i].className = 'blank filled';
+    }
+  }
+  setTimeout(function(){
+    var box = document.querySelector('.selfcheck');
+    if(box && box.scrollIntoView) box.scrollIntoView({behavior:'smooth', block:'center'});
+  }, 60);
+}
+
+function answer(rating){
+  var id = QZ.queue[QZ.i];
+  grade(id, rating);
+  QZ.chosen[id] = rating;
+  QZ.i++; QZ.revealed = false;
+  renderNav();
+  render();
+  var msgs = ['👍 很好，下次复习间隔已拉长', '🔖 已缩短复习间隔，并加入错题本', '📌 新知识点已标记，明天会优先安排'];
+  toast(msgs[rating]);
+}
+
+/* ============================================================
+   视图：记忆时间表
+   ============================================================ */
+var PSTATE = { blockA:'07:00', blockB:'21:30', mins:80, speed:1.2 };
+function vPlan(){
+  var ex = store.conf.examDate || '';
+  var today = todayStr();
+  var dLeft = ex ? dayDiff(ex, today) : null;
+
+  var html = '<h1 style="margin-top:18px">记忆时间表</h1><p class="sub">按艾宾浩斯遗忘曲线自动排出每个知识点的下次复习时间，并结合考试日期倒推每日任务量与背诵时段建议。</p>';
+
+  html += '<div class="card"><h2>基本设置</h2>'
+    + '<div class="input-row"><label>考试日期</label>'
+    + '<input type="date" id="examDate" value="'+ex+'" onchange="setExamDate(this.value)">'
+    + (dLeft !== null ? '<span class="pill accent">'+(dLeft>=0?('距考试 '+dLeft+' 天'):'日期已过')+'</span>' : '')
+    + '</div>'
+    + '<div class="input-row"><label>每次可背诵时长</label>'
+    + '<input type="number" id="mins" min="10" max="300" step="5" value="'+PSTATE.mins+'" style="width:88px" onchange="PSTATE.mins=+this.value;render()">'
+    + '<span style="font-size:13px;color:var(--ink3)">分钟 / 次</span></div>'
+    + '<div class="input-row"><label>背诵时段</label>'
+    + '<input type="time" id="blA" value="'+PSTATE.blockA+'" onchange="PSTATE.blockA=this.value;render()">'
+    + '<span style="font-size:13px;color:var(--ink3)">至</span>'
+    + '<input type="time" id="blB" value="'+PSTATE.blockB+'" onchange="PSTATE.blockB=this.value;render()">'
+    + '</div>'
+    + '<div class="input-row" style="margin-bottom:0"><label>每分钟可过题数</label>'
+    + '<input type="number" id="speed" min="0.3" max="4" step="0.1" value="'+PSTATE.speed+'" style="width:88px" onchange="PSTATE.speed=+this.value;render()">'
+    + '<span style="font-size:13px;color:var(--ink3)">题 / 分钟（默读一遍算 1 题）</span></div>'
+    + '</div>';
+
+  var perDay = Math.max(1, Math.floor(PSTATE.mins * PSTATE.speed));
+  var tot = Q.length, seen = 0;
+  for(var i=0;i<Q.length;i++) if(store.items[Q[i].id] && store.items[Q[i].id].seen) seen++;
+  var nw = tot - seen;                       // 未学题数
+  var dueNow = dueIds().length;
+
+  html += '<div class="sec-title"><span class="bar"></span>背诵建议</div><div class="card">';
+  if(!ex){
+    html += '<div class="advice">请先填写考试日期，系统才能给出倒推排期。</div>';
+  }else{
+    var need = dLeft > 0 ? Math.ceil(nw / dLeft) : nw;
+    var ok = need <= perDay;
+    html += '<div class="advice">'
+      + '<b>距离考试还有 ' + dLeft + ' 天</b>，还有 <b>' + nw + '</b> 道题没学过、<b>' + dueNow + '</b> 道题到期需复习。<br>'
+      + '按每次 <b>' + PSTATE.mins + ' 分钟</b>、约 <b>' + perDay + '</b> 题/次计算：<br>'
+      + (dLeft > 0
+          ? '要按期学完，每天需完成 <b>' + need + '</b> 道新题' + (dueNow ? ' + 复习 <b>' + dueNow + '</b> 道' : '')
+            + '，约需 <b>' + Math.ceil((need + dueNow) / PSTATE.speed) + ' 分钟</b>，折合每天 <b>'
+            + Math.max(1, Math.ceil((need + dueNow) / perDay)) + ' 次</b>背诵。'
+          : '考试日期已过或就是今天，建议只复习 ★ 核心与错题。')
+      + '<ul>'
+      + '<li>推荐节奏：早上 <b>' + PSTATE.blockA + '</b> 学新题（记忆编码效率最高），睡前 <b>' + PSTATE.blockB + '</b> 复习当天到期的题（睡眠有助巩固）。</li>'
+      + '<li>' + (ok ? '当前节奏<b>可以覆盖</b>全部内容，保持即可。' : '当前节奏<b>偏紧</b>，建议把每次时长提高到 ' + Math.ceil((need + dueNow) / PSTATE.speed) + ' 分钟，或优先只背 ★ 核心。') + '</li>'
+      + '<li>★ 核心必考共 ' + K.filter(function(k){return k.star}).length + ' 个知识点，是必须熟练掌握的部分，考前 3 天应全部过一遍。</li>'
+      + '<li>错题本现有 ' + Object.keys(store.mistakes).length + ' 题，考前最后一天只看错题本即可。</li>'
+      + '</ul></div>';
+  }
+  html += '</div>';
+
+  // 未来 14 天排期
+  html += '<div class="sec-title"><span class="bar"></span>未来 14 天复习排期<span class="cnt">按遗忘曲线计算</span></div>';
+  html += '<div class="sched-grid">' + planDays(14, perDay).join('') + '</div>';
+
+  html += '<div class="sec-title"><span class="bar"></span>遗忘曲线复习节点</div><div class="card">'
+    + '<div style="display:grid;gap:8px;font-size:13.5px;color:var(--ink2)">'
+    + '<div>每个知识点的复习间隔依次为：<b style="color:var(--accent-d)">5 分钟 → 30 分钟 → 12 小时 → 1 天 → 2 天 → 4 天 → 7 天 → 15 天 → 30 天</b>。</div>'
+    + '<div>选择「记得」→ 进入下一节点；「记不清」→ 退回上一节点重来；「完全没听过」→ 从第一天重新开始。</div>'
+    + '<div>系统会根据考试日期自动<b>压缩间隔</b>，确保每个知识点考前至少复习过两轮。</div>'
+    + '</div></div>';
+  return html;
+}
+
+function planDays(n, perDay){
+  var out = [], today = todayStr();
+  var ex = store.conf.examDate;
+  var dLeft = ex ? dayDiff(ex, today) : null;
+
+  // 剩余未学题数
+  var remainNew = 0;
+  for(var j=0;j<Q.length;j++) if(!store.items[Q[j].id] || !store.items[Q[j].id].seen) remainNew++;
+
+  // 每天新学配额：未学总数 ÷ 剩余天数（无考试日期则默认 30 天摊完）
+  var span = (dLeft !== null && dLeft > 0) ? dLeft : 30;
+  var newPerDay = Math.max(1, Math.ceil(remainNew / span));
+  var newLeft = remainNew;
+
+  for(var d=0; d<n; d++){
+    var dt = new Date(); dt.setDate(dt.getDate() + d);
+    var ds = todayStr(dt);
+    if(ex && ds > ex) break;
+
+    // 当天到期复习量：next 落在这一天的题数
+    var rev = 0;
+    for(var i=0;i<Q.length;i++){
+      var it = store.items[Q[i].id];
+      if(it && it.seen && todayStr(new Date(it.next)) === ds) rev++;
+    }
+
+    // 当天新学量：按配额发放，发完为止
+    var nwc = Math.min(newPerDay, newLeft);
+    newLeft -= nwc;
+
+    var totalD = rev + nwc;
+    var label = (d === 0 ? '今天' : (d === 1 ? '明天' : (dt.getMonth()+1)+'月'+dt.getDate()+'日'))
+      + ' · 周' + '日一二三四五六'[dt.getDay()];
+    var est = Math.max(1, Math.ceil(totalD / PSTATE.speed)) ;
+    out.push('<div class="day-card'+(d===0?' today':'')+'">'
+      + '<div class="day-head"><b>'+label+'</b>'
+      + (d===0 ? '<span class="pill accent">今日</span>' : '')
+      + '<span class="pill">'+totalD+' 题 · 约 '+est+' 分钟</span></div>'
+      + '<div class="day-bar">'
+      +   '<i class="new" style="width:'+(totalD?Math.round(nwc/totalD*100):0)+'%"></i>'
+      +   '<i class="rev" style="width:'+(totalD?Math.round(rev/totalD*100):0)+'%"></i>'
+      + '</div>'
+      + '<div class="day-legend">'
+      +   '<span><s style="background:#D9764F"></s>新学 '+nwc+'</span>'
+      +   '<span><s style="background:#A8BF97"></s>复习 '+rev+'</span>'
+      + '</div>'
+      + (totalD ? '<button class="btn sm block" style="margin-top:11px" onclick="startQuiz(\'mix\')">开始这一天</button>' : '<div style="font-size:12.5px;color:var(--ink3);margin-top:9px">暂无安排，可自由巩固</div>')
+      + '</div>');
+  }
+  return out;
+}
+
+/* ============================================================
+   视图：错题本
+   ============================================================ */
+function vWrong(){
+  var ids = Object.keys(store.mistakes).map(Number).filter(function(id){ return store.mistakes[id] > 0; });
+  ids.sort(function(a,b){ return store.mistakes[b] - store.mistakes[a]; });
+
+  var html = '<h1 style="margin-top:18px">错题本</h1><p class="sub">所有被标记为「记不清」「完全没听过」的题目自动汇入这里，按出错次数排序。答对一次就会自动减去一次。</p>';
+
+  if(!ids.length){
+    html += '<div class="card quiz-empty"><div class="big">🔖</div><h2>错题本是空的</h2>'
+      + '<p style="font-size:14px;color:var(--ink2);margin-bottom:16px">去背诵检测里开始一轮，拿不准的题会自动记录下来。</p>'
+      + '<button class="btn primary" onclick="startQuiz(\'mix\')">开始背诵</button></div>';
+    return html;
+  }
+
+  html += '<div class="card" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">'
+    + '<div><b style="font-size:22px;color:var(--bad)">'+ids.length+'</b><span style="font-size:13px;color:var(--ink2);margin-left:6px">道待攻克</span></div>'
+    + '<button class="btn primary sm" style="margin-left:auto" onclick="startQuiz(\'wrong\')">全部重做一遍</button>'
+    + '<button class="btn ghost sm" onclick="if(confirm(\'清空错题本？此操作不可恢复\')){store.mistakes={};save();render();renderNav()}">清空</button>'
+    + '</div>';
+
+  html += '<div class="sec-title"><span class="bar"></span>按错误次数排序</div><div class="m-list">';
+  ids.forEach(function(id, idx){
+    var q = Q[id]; if(!q) return;
+    var k = K[q.kid] || {};
+    var c = store.mistakes[id];
+    var it = store.items[id];
+    var m = mastery(it);
+    html += '<div class="m-item s'+m+'" onclick="QZ.live=false;startQuiz(\'wrong\')">'
+      + '<span class="m-rank">'+(idx+1)+'</span>'
+      + '<div class="t"><b>'+k.title+(k.star?' <span class="k-star">★</span>':'')+'</b>'
+      + '<span>'+catName(k.cat)+' · 错 '+c+' 次 · 当前 '+MTAG[m]+'</span></div>'
+      + '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+/* ============================================================
+   视图：统计
+   ============================================================ */
+function vStat(){
+  var stats = calcStats();
+  var tot = Q.length, seen = 0, mast = 0, starTot = 0, starSeen = 0, starMast = 0;
+  for(var i=0;i<Q.length;i++){
+    var it = store.items[Q[i].id], k = K[Q[i].kid];
+    if(k && k.star){ starTot++; if(it && it.seen){ starSeen++; if(mastery(it)>=3) starMast++; } }
+    if(it && it.seen){ seen++; if(mastery(it)>=3) mast++; }
+  }
+  var wsum = 0; Object.keys(store.mistakes).forEach(function(k){ wsum += store.mistakes[k]; });
+
+  var html = '<h1 style="margin-top:18px">学习统计</h1><p class="sub">'
+    + (syncOn() ? '已开启云同步，电脑和手机共用同一份进度。' : '数据保存在本机浏览器；开启下方「云同步」后电脑和手机可自动共用进度。')
+    + '</p>';
+  html += '<div class="stat-grid">'
+    + '<div class="stat-box"><b>'+seen+'</b><span>已学 / 共 '+tot+' 题</span></div>'
+    + '<div class="stat-box"><b>'+mast+'</b><span>已熟练（连续答对）</span></div>'
+    + '<div class="stat-box"><b>'+starSeen+'/'+starTot+'</b><span>★ 核心已学</span></div>'
+    + '<div class="stat-box"><b>'+Object.keys(store.mistakes).length+'</b><span>错题待攻克</span></div>'
+    + '</div>';
+
+  html += '<div class="sec-title"><span class="bar"></span>各板块进度</div><div class="card">';
+  CATS.forEach(function(c){
+    var ks = K.filter(function(k){ return k.cat === c.k; });
+    var qids = [], i, j;
+    for(i=0;i<ks.length;i++) for(j=0;j<Q.length;j++) if(Q[j].kid === ks[i].id) qids.push(Q[j].id);
+    var s = 0; qids.forEach(function(id){ if(store.items[id] && store.items[id].seen) s++; });
+    var p = qids.length ? Math.round(s/qids.length*100) : 0;
+    html += '<div class="cat-row"><span class="nm">'+c.n+'</span>'
+      + '<span class="bg"><i style="width:'+p+'%"></i></span>'
+      + '<span class="pc">'+s+'/'+qids.length+'</span></div>';
+  });
+  html += '</div>';
+
+  /* ---- 云同步 ---- */
+  html += '<div class="sec-title"><span class="bar"></span>云同步<span class="cnt">'
+    + (syncOn() ? syncLabel() : '电脑 / 手机共用进度') + '</span></div>';
+  html += '<div class="card">';
+
+  if(!syncOn()){
+    html += '<p style="font-size:13.5px;color:var(--ink2);line-height:1.85;margin:0 0 14px">'
+      + '登录同一个 GitHub 账号，把进度存进你自己的私有 Gist。手机和电脑用同一个网址打开并填入相同凭据，进度自动合并。</p>';
+    html += '<div class="input-row" style="margin-bottom:10px"><label>GitHub Token</label>'
+      + '<input type="password" id="ghToken" placeholder="ghp_… 或 github_pat_…" autocomplete="off" style="flex:1;min-width:180px;padding:9px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg)">'
+      + '</div>';
+    html += '<div class="input-row"><label>已有 Gist ID</label>'
+      + '<input id="ghGist" placeholder="留空表示新建云端存储" autocomplete="off" style="flex:1;min-width:180px;padding:9px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg)">'
+      + '</div>';
+    html += '<div style="display:flex;gap:9px;flex-wrap:wrap">'
+      + '<button class="btn primary" onclick="createGist()">新建云端存储</button>'
+      + '<button class="btn ghost" onclick="bindGist()">连接已有存储</button>'
+      + '</div>';
+    html += '<details style="margin-top:14px;font-size:13px;color:var(--ink2);line-height:1.85">'
+      + '<summary style="cursor:pointer;font-weight:600;color:var(--accent-d)">怎么获取 Token？（点开看步骤）</summary>'
+      + '<ol style="margin:9px 0 0;padding-left:20px">'
+      + '<li>电脑浏览器登录 github.com</li>'
+      + '<li>右上头像 → Settings → 左侧拉到底 → Developer settings</li>'
+      + '<li>Personal access tokens → <b>Tokens (classic)</b> → Generate new token (classic)</li>'
+      + '<li>Note 随便写，Expiration 建议选 90 天，<b>只勾选 gist 这一项</b></li>'
+      + '<li>点 Generate，<b>立刻复制</b>（只显示一次），粘贴到上面输入框</li>'
+      + '<li>点「新建云端存储」，然后到另一台设备填入<b>同一个 Token</b> 和生成的 Gist ID</li>'
+      + '</ol></details>';
+  }else{
+    html += '<div class="input-row" style="margin-bottom:12px">'
+      + '<span class="pill gold">' + syncLabel() + '</span>'
+      + '<span class="pill">' + (cloud.auto ? '自动同步已开' : '自动同步已关') + '</span>'
+      + '</div>';
+    html += '<p style="font-size:13px;color:var(--ink3);margin:0 0 14px;word-break:break-all">Gist ID：' + esc(cloud.gistId) + '</p>';
+    html += '<div style="display:flex;gap:9px;flex-wrap:wrap">'
+      + '<button class="btn primary" onclick="doSync(false).catch(function(){})">立即同步</button>'
+      + '<button class="btn ghost" onclick="toggleAuto()">' + (cloud.auto ? '关闭自动同步' : '开启自动同步') + '</button>'
+      + '<button class="btn ghost" onclick="unbindGist()">断开</button>'
+      + '</div>';
+    html += '<p style="font-size:12.5px;color:var(--ink3);margin:12px 0 0;line-height:1.75">'
+      + '每次同步都是「拉取云端 → 逐题双向合并 → 推回」，两边都答过的题以<b>最后作答的时间较晚</b>一方为准，所以不会互相覆盖丢失。</p>';
+  }
+  html += '</div>';
+
+  html += '<div class="sec-title"><span class="bar"></span>数据管理</div><div class="card">'
+    + '<p style="font-size:13.5px;color:var(--ink2);margin:0 0 12px">累计作答 '+stats.done+' 次，其中答对 '+stats.correct+' 次。</p>'
+    + '<div style="display:flex;gap:9px;flex-wrap:wrap">'
+    + '<button class="btn ghost" onclick="exportData()">导出学习进度</button>'
+    + '<button class="btn ghost" onclick="importData()">导入进度</button>'
+    + '<button class="btn ghost" onclick="if(confirm(\'重置全部学习记录？此操作不可恢复\')){localStorage.removeItem(SKEY);store=load();render();renderNav();toast(\'已重置\')}">重置全部</button>'
+    + '</div></div>';
+  return html;
+}
+
+function exportData(){
+  var t = JSON.stringify(store);
+  var b = btoa(unescape(encodeURIComponent(t)));
+  var a = document.createElement('a');
+  a.href = 'data:application/json;base64,' + b;
+  a.download = '积极分子锦囊-进度-' + todayStr() + '.json';
+  a.click();
+  toast('已导出，请保存该文件');
+}
+function importData(){
+  var inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = '.json,application/json';
+  inp.onchange = function(){
+    var f = inp.files[0]; if(!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try{
+        var o = JSON.parse(r.result);
+        if(!o.items) throw 0;
+        store = o; store.items = store.items||{}; store.mistakes = store.mistakes||{}; store.conf = store.conf||{};
+        save(); render(); renderNav(); toast('进度已导入');
+      }catch(e){ toast('文件格式不正确'); }
+    };
+    r.readAsText(f, 'utf-8');
+  };
+  inp.click();
+}
+
+/* ---------- 启动 ---------- */
+window.addEventListener('hashchange', function(){
+  var h = location.hash.replace('#','') || 'home';
+  if(h !== cur){ cur = h; renderNav(); render(); }
+});
+(function init(){
+  var h = location.hash.replace('#','');
+  if(ROUTES.some(function(r){ return r.k === h; })) cur = h;
+  renderNav(); render();
+  document.addEventListener('keydown', function(e){
+    if(cur !== 'quiz' || !QZ.live) return;
+    if(!QZ.revealed){
+      if(e.key === ' ' && document.activeElement.id !== 'quizInput'){ e.preventDefault(); reveal(); }
+    }else{
+      if(e.key === '1') answer(0);
+      if(e.key === '2') answer(1);
+      if(e.key === '3') answer(2);
+    }
+  });
+
+  // 启动时拉一次云端（若已配置）
+  if(syncOn()) setTimeout(function(){ syncPullIfStale(); }, 800);
+  // 从后台切回页面时拉一次，手机端尤其常用
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden) syncPullIfStale();
+  });
+  // 联网恢复时补一次
+  window.addEventListener('online', function(){ syncPullIfStale(); });
+  // 离开页面前把待推送的改动发出去
+  window.addEventListener('pagehide', function(){
+    if(syncOn() && cloud.auto && syncTimer){
+      clearTimeout(syncTimer); syncTimer = null;
+      doSync(true).catch(function(){});
+    }
+  });
+})();
+</script>
+</body>
+</html>

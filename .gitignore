@@ -1,0 +1,19 @@
+# 源始资料（内容已提取进 kb-data.js，无需入库）
+*.pdf
+
+# 本地工具配置
+.claude/
+
+# 临时文件
+_*.js
+_*.pl
+_*.txt
+_*.html
+exam_*.jpg
+shot_*.png
+ScreenShot_*.png
+
+# 系统文件
+Thumbs.db
+.DS_Store
+desktop.ini
